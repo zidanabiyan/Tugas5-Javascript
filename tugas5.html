@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Add this style to ensure background image covers the div */
+        .animal-div {
+            background-size: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Letakan Kursor Ke masing-masing kotak untuk melihat gambar dan suara</h2>
+    <div id="div1" class="animal-div">
+        Hewan Bebek
+    </div>
+    <div id="div2" class="animal-div">
+        Hewan Kucing
+    </div>
+    <div id="div3" class="animal-div">
+        Hewan Ayam
+    </div>
+    
+    <audio id="bebek-audio">
+        <source src="bebek_sound.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="kucing-audio">
+        <source src="kucing_sound.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="ayam-audio">
+        <source src="ayam_sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#div1").mouseover(function(){
+                $(this).css({
+                    background : "url('https://upload.wikimedia.org/wikipedia/commons/7/74/White_domesticated_duck%2C_stretching.jpg')",
+                    "background-size": "cover"
+                });
+            }).click(function(){
+                $("#bebek-audio")[0].play();
+            });
+            $("div").mouseout(function(){
+                $(this).css({
+                    background: "green"
+                });
+            });
+
+            $("#div2").mouseover(function(){
+                $(this).css({
+                    background : "url('https://upload.wikimedia.org/wikipedia/commons/5/58/Kucing_Calico.jpg')",
+                    "background-size": "cover"
+                });
+            }).click(function(){
+                $("#kucing-audio")[0].play();
+            });
+
+            $("#div3").mouseover(function(){
+                $(this).css({
+                    background : "url('https://upload.wikimedia.org/wikipedia/commons/1/13/Clyde_The_Bulldog.jpg')",
+                    "background-size": "cover"
+                });
+            }).click(function(){
+                $("#ayam-audio")[0].play();
+            });
+        });
+    </script>
+</body>
+</html>
